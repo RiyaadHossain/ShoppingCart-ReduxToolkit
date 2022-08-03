@@ -20,6 +20,7 @@ const cartSlice = createSlice({
           id,
           name,
           price,
+          quantity: 1,
           totalPrice: price,
         });
         state.totalQuantity++;
