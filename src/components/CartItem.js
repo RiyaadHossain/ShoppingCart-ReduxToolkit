@@ -12,7 +12,7 @@ const CartItem = ({ name, quantity, total, price, id }) => {
       cartActions.addToCart({
         id,
         name,
-        price
+        price,
       })
     );
   };
@@ -20,7 +20,7 @@ const CartItem = ({ name, quantity, total, price, id }) => {
     <div className="cartItem">
       <h2> {name}</h2>
       <p>${price} /-</p>
-      <p>x{quantity}</p>
+      <p>{quantity}x</p>
       <article>Total ${total}</article>
       <button className="cart-actions" onClick={removeHandler}>
         -
