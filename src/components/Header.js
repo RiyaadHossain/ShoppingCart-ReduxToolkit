@@ -5,9 +5,12 @@ import Cart from "./Cart";
 import "./Header.css";
 const Header = () => {
   const dispatch = useDispatch()
+  
+  /* Log Out Function */
   const logout = () => {
     dispatch(authActions.logout())
   }
+  
   return (
     <header>
       <nav className="header-nav">

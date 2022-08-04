@@ -4,17 +4,15 @@ import "./Cart.css";
 import { cartActions } from "./../store/cartSlice";
 const CartItem = ({ name, quantity, total, price, id }) => {
   const dispatch = useDispatch();
+
+  /* Add to Cart */
+  const addHandler = () => {
+    dispatch(cartActions.addToCart({ id, name, price }));
+  };
+
+  /* Remove From Cart */
   const removeHandler = () => {
     dispatch(cartActions.removeFromCart(id));
-  };
-  const addHandler = () => {
-    dispatch(
-      cartActions.addToCart({
-        id,
-        name,
-        price,
-      })
-    );
   };
   return (
     <div className="cartItem">

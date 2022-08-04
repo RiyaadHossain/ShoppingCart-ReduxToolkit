@@ -5,12 +5,15 @@ import { notifyActions } from "../store/notifySlice";
 
 export const Notification = ({ type, message }) => {
   const dispatch = useDispatch();
-  const closeNoti = () => {
+
+  /* Close Notification Function */
+  const closeNotification = () => {
     dispatch(notifyActions.showNotificaiton({ open: false }));
   };
+
   return (
     <div>
-      <Alert onClose={closeNoti} severity={type}>
+      <Alert onClose={closeNotification} severity={type}>
         {message}
       </Alert>
     </div>

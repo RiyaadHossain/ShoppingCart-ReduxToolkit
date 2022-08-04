@@ -9,6 +9,7 @@ const cartSlice = createSlice({
     isChanged: false
   },
   reducers: {
+    /* 1. Add to Cart */
     addToCart(state, actions) {
       const { id, name, price } = actions.payload;
       const existItem = state.cartItems.find((item) => item.id === id);
@@ -28,6 +29,8 @@ const cartSlice = createSlice({
       }
       state.isChanged = true
     },
+
+    /* 2. Remove From Cart */
     removeFromCart(state, actions) {
       const id = actions.payload;
 
@@ -42,9 +45,13 @@ const cartSlice = createSlice({
       }
       state.isChanged = true
     },
+
+    /* 3. Show The Cart */
     showCart(state) {
       state.showCart = !state.showCart;
     },
+
+    /* 4. Show the Stored Data */
     replaceData(state, actions) {
       state.cartItems = actions.payload;
       state.totalQuantity = actions.payload.length;

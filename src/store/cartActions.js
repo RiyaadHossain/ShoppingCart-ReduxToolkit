@@ -2,17 +2,19 @@ import { cartActions } from "./cartSlice";
 import { notifyActions } from "./notifySlice";
 
 export const getData = () => {
+
   return async (dispatch) => {
+    
+    /* Fetch The Data */
     const fetchHandler = async () => {
-      const res = await fetch(
-        "https://common-project-000-default-rtdb.firebaseio.com/cartItems.json"
-      );
+      const res = await fetch("https://common-project-000-default-rtdb.firebaseio.com/cartItems.json");
       const data = await res.json();
       return data;
     };
     try {
       const cartData = await fetchHandler();
-      dispatch(cartActions.replaceData(cartData));
+      /* Show in the UI */
+      dispatch(cartActions.replaceData(cartData)); 
     } catch (err) {
       dispatch(
         notifyActions.showNotification({
@@ -22,6 +24,7 @@ export const getData = () => {
         })
       );
     }
+
   };
 };
 

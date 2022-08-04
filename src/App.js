@@ -17,6 +17,7 @@ function App() {
   );
 
   useEffect(() => {
+    /* Get The Data */
     dispatch(getData());
   }, [dispatch]);
 
