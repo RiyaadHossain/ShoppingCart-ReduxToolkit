@@ -4,11 +4,24 @@ ul {
 li {
   padding: 10px;
 }
+.cart-container h2{
+  font-size: 40px;
+  text-align: center;
+  margin: 20px 0;
+}
+.cartIcon{
+  display: flex;
+  align-items: center;
+}
+.cartIcon p{
+  font-size: 18px;
+}
 .cartIcon h3 {
   border: 1px solid #ccc;
   border-radius: 20px;
   padding: 10px;
   cursor: pointer;
+  margin-right: 10px;
 }
 .cart-container {
   border: 1px solid black;
@@ -37,4 +50,5 @@ li {
   width: 50px;
   border: none;
   background: rgb(10, 7, 24);
+  margin-left: 15px;
 }
