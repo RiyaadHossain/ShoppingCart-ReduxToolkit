@@ -42,6 +42,11 @@ const cartSlice = createSlice({
     showCart(state) {
       state.showCart = !state.showCart;
     },
+    replaceData(state, actions) {
+      console.log(actions.payload);
+      state.cartItems = actions.payload;
+      state.totalQuantity = actions.payload.length;
+    },
   },
 });
 
