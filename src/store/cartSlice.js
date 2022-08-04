@@ -6,6 +6,7 @@ const cartSlice = createSlice({
     cartItems: [],
     totalQuantity: 0,
     showCart: false,
+    isChanged: false
   },
   reducers: {
     addToCart(state, actions) {
@@ -25,6 +26,7 @@ const cartSlice = createSlice({
         });
         state.totalQuantity++;
       }
+      state.isChanged = true
     },
     removeFromCart(state, actions) {
       const id = actions.payload;
@@ -38,12 +40,12 @@ const cartSlice = createSlice({
         existItem.quantity--;
         existItem.totalPrice -= existItem.price;
       }
+      state.isChanged = true
     },
     showCart(state) {
       state.showCart = !state.showCart;
     },
     replaceData(state, actions) {
-      console.log(actions.payload);
       state.cartItems = actions.payload;
       state.totalQuantity = actions.payload.length;
     },

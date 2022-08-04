@@ -10,6 +10,7 @@ let firstRender = true;
 function App() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cartItems);
+  const isChanged = useSelector((state) => state.cart.isChanged);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const { type, message, open } = useSelector(
     (state) => state.notify.notification
@@ -25,8 +26,10 @@ function App() {
       return;
     }
     /* Send the Data to Database */
-    dispatch(sendData(cart));
-  }, [cart, dispatch]);
+    if (isChanged) {
+      dispatch(sendData(cart));
+    }
+  }, [cart, dispatch, isChanged]);
 
   return (
     <div className="App">
